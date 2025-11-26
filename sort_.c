@@ -3,12 +3,24 @@
 //sorting elements 
 //bubble sort
 
+void menu();
 void undefined_sort(int,int*);
 void bubble_sort(int,int*);
 void display(int,int*);
 void display_pro(int,int*);
 
 int main(){
+    char choice='y';
+    do{
+        menu();
+    }
+    while(choice == 'y');
+    // {
+    //     printf("\n\nAgain? (y/n) ");
+    //     scanf("%c",&choice);
+}
+
+void menu(){
     int size;               //size = no of elements
     int option,optiond;
 
@@ -27,9 +39,9 @@ int main(){
 
     int* ptr = carr;                        //pointer init
     
-    printf("Select what type of sort to use . \n\n1.Bubble Sort\n2.Binary Sort\n");
+    printf("Select what type of sort to use . \n\n1.Bubble Sort\n2.Unavailable Sort\n");
     scanf("%d",&option);
-    printf("Select what type of sort to use . \n\n1.Simple Display\n2.Advanced Graphical Display\n");
+    printf("Select what type of display to use . \n\n1.Simple Display\n2.Advanced Graphical Display\n");
     scanf("%d",&optiond);
 
     switch(optiond){
@@ -77,7 +89,6 @@ int main(){
         display_pro(size,ptr);
         break;
     }
-    return 0;
 }
 
 void bubble_sort(int s,int* p){             //simple bubble sort 
