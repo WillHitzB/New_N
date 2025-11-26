@@ -6,23 +6,18 @@
 void menu();
 void undefined_sort(int,int*);
 void bubble_sort(int,int*);
-void display(int,int*);
+
 void display_pro(int,int*);
 
 int main(){
     char choice='y';
-    do{
+    while(1){
         menu();
     }
-    while(choice == 'y');
-    // {
-    //     printf("\n\nAgain? (y/n) ");
-    //     scanf("%c",&choice);
 }
-
 void menu(){
     int size;               //size = no of elements
-    int option,optiond;
+    int option;
 
     printf("enter the number of numbers to be added : ");
     scanf("%d",&size);
@@ -41,56 +36,26 @@ void menu(){
     
     printf("Select what type of sort to use . \n\n1.Bubble Sort\n2.Unavailable Sort\n");
     scanf("%d",&option);
-    printf("Select what type of display to use . \n\n1.Simple Display\n2.Advanced Graphical Display\n");
-    scanf("%d",&optiond);
 
-    switch(optiond){
+    printf("Before sort : \n");
+    display_pro(size,ptr);
+    printf("\n");
+    printf("After sort : \n");    
+    switch(option){
         case 1:
-        printf("Before sort : \n");
-        display(size,ptr);
-        printf("\n");
-        printf("After sort : \n");
-        
-        switch(option){
-            case 1:
-            printf("Using Bubble sort\n");
-            bubble_sort(size,ptr);
-            break;
-            case 2:
-            printf("Using X sort\n");
-            undefined_sort(size,ptr);
-            break;
-            default:
-            printf("Invalid");
-            break;
-        }
-        display(size,ptr);
+        printf("Using Bubble sort\n");
+        bubble_sort(size,ptr);
         break;
-
         case 2:
-        printf("Before sort : \n");
-        display_pro(size,ptr);
-        printf("\n");
-        printf("After sort : \n");
-        
-        switch(option){
-            case 1:
-            printf("Using Bubble sort\n");
-            bubble_sort(size,ptr);
-            break;
-            case 2:
-            printf("Using X sort\n");
-            undefined_sort(size,ptr);
-            break;
-            default:
-            printf("Invalid");
-            break;
-        }
-        display_pro(size,ptr);
+        printf("Using X sort\n");
+        undefined_sort(size,ptr);
         break;
-    }
+        default:
+        printf("Invalid");
+        break;
+        }
+        display_pro(size,ptr);    
 }
-
 void bubble_sort(int s,int* p){             //simple bubble sort 
     // printf("%d",p);
     for(int i=0;i<s-1;i++){
@@ -105,13 +70,12 @@ void bubble_sort(int s,int* p){             //simple bubble sort
 }
 void undefined_sort(int s, int* p){
     int first,last;
-    
 }
-void display(int s,int *p){                 //just simple display
-    for(int i=0; i<s; i++){
-        printf("%d  ",*(p+i));
-    }
-}
+// void display(int s,int *p){                 //just simple display
+//     for(int i=0; i<s; i++){
+//         printf("%d  ",*(p+i));
+//     }
+// }
 void display_pro(int length,int *p){
     char ch='0';
     int max=0;
