@@ -84,7 +84,6 @@ void display_pro(int length,int *p){
             max=*(p+i);
         }
     }
-
     //for (int i =0;i<length+4;i++){
         for (int j=0;j<length;j++){
             int num = *(p+j);
