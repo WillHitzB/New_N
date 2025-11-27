@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <unistd.h>
 //sorting elements 
 //bubble sort
 
@@ -37,13 +37,20 @@ void menu(){
     printf("Select what type of sort to use . \n\n1.Bubble Sort\n2.Unavailable Sort\n");
     scanf("%d",&option);
 
+    printf("\033[3J\033[H\033[2J");
     printf("Before sort : \n");
     display_pro(size,ptr);
-    printf("\n");
-    printf("After sort : \n");    
+    sleep(2);
+    printf("\033[3J\033[H\033[2J");
+    display_pro(size,ptr);
+
+
     switch(option){
         case 1:
         printf("Using Bubble sort\n");
+        display_pro(size,ptr);
+        sleep(2);
+        printf("\033[3J\033[H\033[2J");
         bubble_sort(size,ptr);
         break;
         case 2:
@@ -54,7 +61,9 @@ void menu(){
         printf("Invalid");
         break;
         }
-        display_pro(size,ptr);    
+    //printf("\033[3J\033[H\033[2J");
+    display_pro(size,ptr); 
+    printf("After sort ^ \n");       
 }
 void bubble_sort(int s,int* p){             //simple bubble sort 
     // printf("%d",p);
@@ -65,8 +74,14 @@ void bubble_sort(int s,int* p){             //simple bubble sort
                 *(p+j)=*(p+j+1);
                 *(p+j+1)=t;
             }
+        
         }
+        display_pro(s,p);
+        sleep(2);
+        printf("\033[3J\033[H\033[2J");
     }
+
+    
 }
 void undefined_sort(int s, int* p){
     int first,last;
@@ -84,17 +99,14 @@ void display_pro(int length,int *p){
             max=*(p+i);
         }
     }
-    //for (int i =0;i<length+4;i++){
-        for (int j=0;j<length;j++){
-            int num = *(p+j);
-            //printf(" %d ",*(p+j));
-            printf("| ");
-            while(num!=0){
-                printf("%c",ch);
-                num--;
-            }
-            printf(" %d\n",*(p+j));
-            //printf("\n");
+    for (int j=0;j<length;j++){
+        int num = *(p+j);
+        printf("| ");
+        while(num!=0){
+            printf("%c",ch);
+            num--;
         }
-   // }
+        printf(" %d\n",*(p+j));
+    }
+    //printf("\033[3J\033[H\033[2J");
 }
